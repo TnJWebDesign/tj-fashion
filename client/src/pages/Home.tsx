@@ -7,6 +7,7 @@ import { Link } from "wouter";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, ChevronDown, Zap, Flag, Star } from "lucide-react";
 import { toast } from "sonner";
+import { useAuth } from "@/_core/hooks/useAuth";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { collections, featuredProducts, stats } from "@/lib/data";
@@ -30,6 +31,10 @@ function FadeUp({ children, delay = 0, className = "" }: { children: React.React
 }
 
 export default function Home() {
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  let { user, loading, error, isAuthenticated, logout } = useAuth();
+
   const collectionsRef = useRef<HTMLElement>(null);
 
   const scrollToCollections = () => {

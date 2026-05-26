@@ -6,6 +6,9 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Collections from "./pages/Collections";
+import ProductDetail from "./pages/ProductDetail";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 import CollectionDetail from "./pages/CollectionDetail";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -13,12 +16,15 @@ import Contact from "./pages/Contact";
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/collections" component={Collections} />
-      <Route path="/collections/:slug" component={CollectionDetail} />
-      <Route path="/about" component={About} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/404" component={NotFound} />
+      <Route path={"/"} component={Home} />
+      <Route path={"/collections"} component={Collections} />
+      <Route path={"/collections/:slug"} component={CollectionDetail} />
+      <Route path={"/products/:slug"} component={ProductDetail} />
+      <Route path={"/cart"} component={Cart} />
+      <Route path={"/checkout"} component={Checkout} />
+      <Route path={"/about"} component={About} />
+      <Route path={"/contact"} component={Contact} />
+      <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
   );
